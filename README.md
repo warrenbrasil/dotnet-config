@@ -1,4 +1,4 @@
-# Warren - .NET Configure SDK :gear:
+# Warren - Configure .NET SDK :gear:
 
 This action is responsible for installing the .NET SDK (or SDKs) on the workflow runner and add a custom NuGet source.
 
