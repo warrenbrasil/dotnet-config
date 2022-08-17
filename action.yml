@@ -1,4 +1,4 @@
-name: ".NET config"
+name: "Warren: Configure .NET SDK"
 description: "Installs .NET SDK and configures NuGet package source for Warren Packages"
 inputs:
   dotnet-version:
