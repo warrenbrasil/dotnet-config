@@ -1,8 +1,5 @@
 name: "Warren: Configure .NET SDK"
 description: "Installs .NET SDK and configures NuGet package source for Warren Packages"
-branding:
-  icon: "settings"
-  color: "red"
 inputs:
   dotnet-version:
     description: "The SDK version (or versions) to be installed"
