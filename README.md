@@ -1,4 +1,4 @@
-# .NET Config :gear:
+# Warren - .NET Configure SDK :gear:
 
 This action is responsible for installing the .NET SDK (or SDKs) on the workflow runner and add a custom NuGet source.
 
@@ -27,8 +27,8 @@ This action is responsible for installing the .NET SDK (or SDKs) on the workflow
 ## Usage
 
 ```yml
-- name: Configure .NET
-  uses: ./.github/actions/dotnet-config
+- name: Warren - Configure .NET SDK
+  uses: warrenbrasil/dotnet-config@v1
   with:
     dotnet-version: 6.0.x
     nuget-user: ${{ secrets.NUGET_USER }}
@@ -40,8 +40,8 @@ This action is responsible for installing the .NET SDK (or SDKs) on the workflow
 Installing multiple .NET SDKs:
 
 ```yml
-- name: Configure .NET
-  uses: ./.github/actions/dotnet-config
+- name: Warren - Configure .NET SDK
+  uses: warrenbrasil/dotnet-config@v1
   with:
     dotnet-version: |
       6.0.x
