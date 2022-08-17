@@ -1,9 +1,6 @@
-| [Main](../README.md) > .NET Config |
-| ---------------------------------- |
-
 # .NET Config :gear:
 
-This action is responsible for installing the .NET SDK on the workflow runner and add the Warren GitHub Packages NuGet source. The SDK (or SDKs)
+This action is responsible for installing the .NET SDK (or SDKs) on the workflow runner and add a custom NuGet source.
 
 ## Inputs
 
@@ -29,25 +26,7 @@ This action is responsible for installing the .NET SDK on the workflow runner an
 
 ## Usage
 
-Use `actions/checkout@v3` to clone this repository from your workflow run. You only need to checkout your repository and `dotnet actions` repository **ONCE** per job.
-
 ```yml
-# Clone your repository
-- name: Checkout Repository
-  uses: actions/checkout@v3
-  with:
-    fetch-depth: 0
-
-# Clone the actions repository
-- name: Checkout dotnet-actions
-  uses: actions/checkout@v3
-  with:
-    fetch-depth: 0
-    repository: warrenbrasil/dotnet-actions
-    token: ${{ secrets.WARRENBRASIL_GITHUB_PAT }}
-    path: .github/actions
-
-# Install the .NET SDK and configure Warren GitHub Packages Source
 - name: Configure .NET
   uses: ./.github/actions/dotnet-config
   with:
@@ -61,22 +40,6 @@ Use `actions/checkout@v3` to clone this repository from your workflow run. You o
 Installing multiple .NET SDKs:
 
 ```yml
-# Clone your repository
-- name: Checkout Repository
-  uses: actions/checkout@v3
-  with:
-    fetch-depth: 0
-
-# Clone the actions repository
-- name: Checkout dotnet-actions
-  uses: actions/checkout@v3
-  with:
-    fetch-depth: 0
-    repository: warrenbrasil/dotnet-actions
-    token: ${{ secrets.WARRENBRASIL_GITHUB_PAT }}
-    path: .github/actions
-
-# Install the .NET SDKs and configure Warren GitHub Packages Source
 - name: Configure .NET
   uses: ./.github/actions/dotnet-config
   with:
@@ -88,9 +51,3 @@ Installing multiple .NET SDKs:
     nuget-source: ${{ secrets.NUGET_SOURCE }}
     nuget-source-name: ${{ secrets.NUGET_SOURCE_NAME }}
 ```
-
-<br>
-<br>
-
-| [Go Back](../README.md) |
-| ----------------------- |
