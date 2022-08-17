@@ -1,0 +1,36 @@
+name: ".NET config"
+description: "Installs .NET SDK and configures NuGet package source for Warren Packages"
+inputs:
+  dotnet-version:
+    description: "The SDK version (or versions) to be installed"
+    required: true
+    default: "6.0.x"
+  nuget-user:
+    description: "User that will read/write packages"
+    required: true
+  nuget-api-key:
+    description: "The API key to authorize read/write packages"
+    required: true
+  nuget-source:
+    description: "The URL to NuGet source index.json"
+    required: true
+  nuget-source-name:
+    description: "The source name to be saved in nuget.config file"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install .NET SDK
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ inputs. dotnet-version}}
+
+    - name: Add NuGet Source
+      shell: bash
+      env:
+        NUGET_USER: ${{ inputs.nuget-user }}
+        NUGET_API_KEY: ${{ inputs.nuget-api-key }}
+        NUGET_SOURCE: ${{ inputs.nuget-source }}
+        NUGET_SOURCE_NAME: ${{ inputs.nuget-source-name }}
+      run: dotnet nuget add source $NUGET_SOURCE -n $NUGET_SOURCE_NAME -u $NUGET_USER -p $NUGET_API_KEY --store-password-in-clear-text
