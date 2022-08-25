@@ -27,7 +27,12 @@ runs:
     - name: Install .NET SDK
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: ${{ inputs. dotnet-version}}
+        dotnet-version: ${{ inputs.dotnet-version}}
+
+    - name: Clear Previous Sources
+      env:
+        NUGET_SOURCE_NAME: ${{ inputs.nuget-source-name }}
+      run: dotnet nuget remove source $NUGET_SOURCE_NAME || true
 
     - name: Add NuGet Source
       shell: bash
