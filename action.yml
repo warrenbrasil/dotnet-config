@@ -30,6 +30,7 @@ runs:
         dotnet-version: ${{ inputs.dotnet-version}}
 
     - name: Clear Previous Sources
+      shell: bash
       env:
         NUGET_SOURCE_NAME: ${{ inputs.nuget-source-name }}
       run: dotnet nuget remove source $NUGET_SOURCE_NAME || true
