@@ -25,7 +25,7 @@ runs:
   using: composite
   steps:
     - name: Install .NET SDK
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ inputs.dotnet-version}}
 
