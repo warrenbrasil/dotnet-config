@@ -25,7 +25,7 @@ runs:
   using: composite
   steps:
     - name: Install .NET SDK
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ inputs.dotnet-version}}
 
@@ -42,4 +42,4 @@ runs:
         NUGET_API_KEY: ${{ inputs.nuget-api-key }}
         NUGET_SOURCE: ${{ inputs.nuget-source }}
         NUGET_SOURCE_NAME: ${{ inputs.nuget-source-name }}
-      run: dotnet nuget add source $NUGET_SOURCE -n $NUGET_SOURCE_NAME -u $NUGET_USER -p $NUGET_API_KEY --store-password-in-clear-text
+      run: dotnet nuget add source $NUGET_SOURCE -n $NUGET_SOURCE_NAME -u $NUGET_USER -p $NUGET_API_KEY --store-password-in-clear-text || true
